@@ -1,0 +1,6 @@
+Revision history for Perinci-CmdLine-pause
+
+0.01    2015-04-16 (PERLANCAR) (unreleased)
+
+        - First release, split from App-pause to make App-pause only depends on
+          LWP::UserAgent and LWP::Protocol::https.
