@@ -1,12 +1,14 @@
 package Perinci::CmdLine::pause;
 
+# AUTHORITY
 # DATE
+# DIST
 # VERSION
 
 use 5.010001;
 use strict;
 use warnings;
-use Log::Any::IfLOG qw($log);
+use Log::ger;
 
 use parent qw(Perinci::CmdLine::Lite);
 
@@ -22,7 +24,7 @@ sub hook_after_read_config_file {
     return unless -f $path;
 
     open my($fh), "<", $path or die [500, "Can't read $path: $!"];
-    $log->tracef("[pericmd-pause] Reading %s ...", $path);
+    log_trace("[pericmd-pause] Reading %s ...", $path);
     $r->{read_config_files} = [$path];
     while (<$fh>) {
         if (/^user\s+(.+)/) { $r->{config}{GLOBAL}{username} = $1 }
